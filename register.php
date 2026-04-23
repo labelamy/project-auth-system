@@ -2,6 +2,7 @@
 include "db.php";
 
 if ($_POST) {
+
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -9,6 +10,6 @@ if ($_POST) {
     $stmt = $conn->prepare($sql);
     $stmt->execute([$username, $password]);
 
-    echo "User créé avec succès!";
+    echo "Utilisateur créé avec succès";
 }
 ?>

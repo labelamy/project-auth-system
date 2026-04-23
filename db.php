@@ -4,6 +4,10 @@ $dbname = "auth_db";
 $user = "root";
 $pass = "";
 
-$conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (Exception $e) {
+    die("Erreur de base de données: " . $e->getMessage());
+}
 ?>
